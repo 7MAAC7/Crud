@@ -26,13 +26,28 @@ public class MainActivity extends AppCompatActivity {
         this.et_precio  = (EditText) findViewById(R.id.Precio);
 
         this.btn_ingreso= (Button) findViewById(R.id.Ingreso);
-        this.btn_ingreso.setOnClickListener({Registro();});
+        this.btn_ingreso.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Add your code in here!
+               Registro();
+            }
+        });
 
         this.btn_busq = (Button) findViewById(R.id.Busqueda);
-        this.btn_busq.setOnClickListener();
+        this.btn_busq.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) { Busqueda();}
+        });
 
         this.btn_elim = (Button) findViewById(R.id.eliminar);
-        this.btn_elim.setOnClickListener();
+        this.btn_elim.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Add your code in here!
+                eliminar();
+            }
+        });
     }
     public void Registro() {
         Conexion miobjetivo = new Conexion(this, "Administracion", null, 1);
@@ -62,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Error", Toast.LENGTH_SHORT).show();
         } finally {
             BD.close();
- 
+
         }
     }
 
